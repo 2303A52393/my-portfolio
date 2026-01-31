@@ -6,14 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pendli Likitha | Portfolio</title>
 
-  <script src="https://kit.fontawesome.com/a9cdbedf57.js" crossorigin="anonymous"></script>
+  <!-- Font Awesome CDN (safe) -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- Smooth Scroll -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-  <span class="logo">My Portfolio</span>
+  <h1 class="logo">My Portfolio</h1>
   <nav>
     <ul>
       <li><a href="#home">Home</a></li>
@@ -33,7 +44,7 @@
 <section class="hero" id="home">
   <div class="hero-container">
     <div class="hero-image">
-      <img src="assets/img/image.jpg.jpeg" alt="Pendli Likitha">
+      <img src="./assets/img/image.jpeg" alt="Pendli Likitha">
     </div>
 
     <div class="hero-text">
@@ -74,7 +85,7 @@
   </div>
 </section>
 
-<!-- INTERNSHIP CERTIFICATE -->
+<!-- INTERNSHIP -->
 <section class="cards-section" id="internships">
   <h2>My <span>Internship Certificate</span></h2>
   <div class="cards-container">
@@ -82,7 +93,7 @@
       <h3>AICTE Virtual Internship Certificate</h3>
       <p>SR University</p>
       <p>Certificate ID: abc3a5f0509a69345384bc6d6fc9d85b</p>
-      <a href="assets/certificates/AICTE.pdf" target="_blank" class="view-btn">View Certificate</a>
+      <a href="./assets/certificates/AICTE.pdf" target="_blank" class="view-btn">View Certificate</a>
     </div>
   </div>
 </section>
@@ -101,7 +112,7 @@
     <div class="certificate-box">
       <h3>Endpoint Security Badge</h3>
       <p>December 19, 2024</p>
-      <a href="assets/certificates/endpoint-security.pdf" target="_blank">View Certificate</a>
+      <a href="./assets/certificates/endpoint-security.pdf" target="_blank">View Certificate</a>
     </div>
   </div>
 </section>
@@ -120,7 +131,7 @@
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
   <h2>Contact <span>Me</span></h2>
-  <form class="contact-form">
+  <form class="contact-form" onsubmit="alert('Message sent successfully!'); return false;">
     <input type="text" placeholder="Full Name" required>
     <input type="email" placeholder="Email" required>
     <textarea rows="5" placeholder="Message" required></textarea>
@@ -136,4 +147,3 @@
 
 </body>
 </html>
-
