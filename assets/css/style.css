@@ -2,13 +2,13 @@
 
 /* ================= GLOBAL ================= */
 :root {
-  --primary: #d4af37;        
-  --primary-hover: #b8962e;
-  --dark-primary: #0f0f14;    
-  --dark-secondary: #1a1a22;
-  --text-color: #d1d5db;
+  --primary: #9c8772;          
+  --primary-hover: #7e6b58;
+  --dark-primary: #f5f3ef;     
+  --light-dark: #ebe7e1;
+  --card-bg: #ffffff;
+  --text-color: #5c5c5c;
 }
-
 
 * {
   margin: 0;
@@ -21,50 +21,38 @@ html {
 }
 body {
   font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle at top left, #1a1a22, #0f0f14 60%);
-  color: white;
+  background: linear-gradient(180deg, #f5f3ef, #ebe7e1);
+  color: #333;
 }
-
-
 /* ================= HEADER ================= */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: var(--dark-primary);
-  padding: 20px 48px;
+  padding: 20px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1000;
+  background: rgba(245, 243, 239, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #ddd;
 }
 
 header .logo {
   color: var(--primary);
-  font-weight: 600;
-  font-size: 26px;
-  letter-spacing: 2px;
-}
-
-header ul {
-  list-style: none;
-  display: flex;
-}
-
-header ul li {
-  margin-left: 32px;
+  font-weight: 700;
+  font-size: 24px;
 }
 
 header ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 18px;
+  color: #444;
   font-weight: 500;
 }
 
 header ul li a:hover {
   color: var(--primary);
 }
+
 /* ================= HERO ================= */
 .hero {
   min-height: 100vh;
@@ -72,8 +60,7 @@ header ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at left, rgba(212,175,55,0.15), transparent 40%),
-              radial-gradient(circle at right, rgba(212,175,55,0.08), transparent 40%);
+  background: linear-gradient(180deg, #f5f3ef, #ebe7e1);
 }
 
 .hero-container {
@@ -87,31 +74,32 @@ header ul li a:hover {
 .hero-image img {
   width: 360px;
   border-radius: 20px;
-  padding: 6px;
-  background: linear-gradient(135deg, #d4af37, #b8962e);
-  box-shadow: 0 0 40px rgba(212,175,55,0.6);
-  transition: 0.4s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
 }
 
 .hero-image img:hover {
-  transform: scale(1.03);
+  transform: translateY(-5px);
 }
 
 .hero-text h2 {
-  color: #d4af37;
-  font-size: 22px;
+  color: #9c8772;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .hero-text h1 {
-  font-size: 46px;
+  font-size: 48px;
   margin: 12px 0;
   font-weight: 700;
+  color: #222;
 }
 
 .hero-text p {
   font-size: 18px;
-  color: #d1d5db;
+  color: #5c5c5c;
   margin-bottom: 24px;
+  line-height: 1.7;
 }
 
 /* ================= SOCIAL ICONS ================= */
