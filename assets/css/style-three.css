@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 /* Global variables */
 :root {
-  --primary: #ff29e4;
-  --primary-hover: #e01dc8;
-  --dark-primary: #1b1b2f; /* Updated */
-  --dark-secondary: #2c2c44; /* Updated */
-  --text-color: #c4c4c4;
+  --primary: #c084fc;
+  --primary-hover: #a855f7;
+  --dark-primary: #1e1b2e;
+  --dark-secondary: #2a2540;
+  --text-color: #d1d5db;
 }
 
 * {
@@ -17,9 +17,11 @@
 html {
   scroll-behavior: smooth;
 }
-
 body {
   font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #1e1b2e, #2a2540, #3b2f5c);
+  background-attachment: fixed;
+  color: #f3f4f6;
 }
 
 /* Header */
