@@ -4,8 +4,8 @@
 :root {
   --primary: #ff29e4;
   --primary-hover: #e01dc8;
-  --dark-primary: #4f1652;
-  --dark-secondary: #753980;
+  --dark-primary: #1b1b2f; /* Updated */
+  --dark-secondary: #2c2c44; /* Updated */
   --text-color: #c4c4c4;
 }
 
@@ -72,7 +72,7 @@ header ul li a:hover {
 
 /* Hero Section */
 section.hero-section {
-  background-color: var(--dark-primary);
+  background: linear-gradient(135deg, #1b1b2f, #2c2c44); /* gradient background */
   color: #fff;
   display: flex;
   align-items: center;
@@ -218,7 +218,7 @@ section.about-section {
 
 /* Projects Section */
 section.projects-section {
-  background-color: var(--dark-primary);
+  background: linear-gradient(135deg, #1b1b2f, #2c2c44); /* gradient background */
   color: #fff;
   padding: 50px 120px;
 }
