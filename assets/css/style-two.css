@@ -2,11 +2,11 @@
 
 /* Global variables */
 :root {
-  --primary: #ff5555;
-  --primary-hover: #e43232;
-  --dark-primary: #000;
-  --dark-secondary: #1e1b1b;
-  --text-color: #c4c4c4;
+  --primary: #ff4d4d;
+  --primary-hover: #ff1a1a;
+  --dark-primary: #140000;
+  --dark-secondary: #1f0a0a;
+  --text-color: #d1d5db;
 }
 
 * {
@@ -21,6 +21,10 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #140000, #1f0a0a, #330000);
+  background-attachment: fixed;
+  color: #f3f4f6;
+}
 }
 
 /* Header */
