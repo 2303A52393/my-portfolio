@@ -1,280 +1,217 @@
-/* * Canva-Inspired Premium Design System
- * Focus: Clean whitespace, soft shadows, and elegant purple gradients
- */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendli Likitha | Portfolio</title>
+    <script src="https://kit.fontawesome.com/a9cdbedf57.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        :root {
+            --canva-purple: #7d2ae8;
+            --canva-gradient: linear-gradient(135deg, #7d2ae8 0%, #00c4cc 100%);
+            --bg-light: #f6f9fc;
+            --text-dark: #0e1318;
+            --text-muted: #5e6d77;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --radius: 24px;
+        }
 
-:root {
-  --canva-purple: #7d2ae8;
-  --canva-light-purple: #f2f0ff;
-  --canva-gradient: linear-gradient(135deg, #7d2ae8 0%, #00c4cc 100%);
-  --bg-main: #ffffff;
-  --bg-soft: #f8f9fa;
-  --text-dark: #0e1318;
-  --text-muted: #5e6d77;
-  --border: #e1e4e8;
-  --shadow-soft: 0 8px 24px rgba(149, 157, 165, 0.15);
-  --radius-xl: 30px;
-  --radius-lg: 20px;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #fff; color: var(--text-dark); scroll-behavior: smooth; }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        /* Header */
+        header {
+            position: sticky; top: 0; background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px); padding: 1.2rem 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; border-bottom: 1px solid #eee;
+        }
+        .logo { font-weight: 800; color: var(--canva-purple); font-size: 1.4rem; }
+        nav ul { display: flex; list-style: none; gap: 25px; }
+        nav a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.9rem; }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-dark);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+        /* Hero Section */
+        .hero { 
+            padding: 100px 8% 60px; 
+            display: flex; align-items: center; justify-content: space-between; 
+            background: radial-gradient(circle at top right, #f2f0ff, #fff);
+            min-height: 80vh;
+        }
+        .hero-text { flex: 1; }
+        .hero-text h2 { 
+            font-size: 1.5rem; color: var(--canva-purple); margin-bottom: 0.5rem; 
+            min-height: 1.6em; /* Prevents layout jump during typing */
+        }
+        .hero-text h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero-text p { font-size: 1.1rem; color: var(--text-muted); max-width: 500px; margin-bottom: 2.5rem; }
 
-/* --- Navigation (Canva Style Header) --- */
-header {
-  position: sticky;
-  top: 0;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  padding: 1rem 10%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-  border-bottom: 1px solid var(--border);
-}
+        /* Social Icons with unique colors */
+        .social-buttons { display: flex; gap: 15px; }
+        .social-btn {
+            padding: 12px 24px; border-radius: 100px; text-decoration: none; 
+            font-weight: 700; color: white; display: flex; align-items: center; gap: 8px;
+            transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .social-btn:hover { transform: translateY(-3px); }
+        .github { background: #24292e; }
+        .linkedin { background: #0077b5; }
+        .mail { background: var(--canva-purple); }
 
-.logo {
-  font-weight: 800;
-  font-size: 1.4rem;
-  color: var(--canva-purple);
-  letter-spacing: -1px;
-}
+        .hero-image img {
+            width: 380px; height: 380px; border-radius: var(--radius);
+            object-fit: cover; box-shadow: 30px 30px 0 var(--canva-light-purple);
+            border: 8px solid white; box-shadow: var(--shadow);
+        }
 
-nav ul {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-}
+        /* Sections */
+        section { padding: 80px 8%; }
+        h2.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; font-weight: 800; }
+        h2.section-title span { color: var(--canva-purple); }
 
-nav ul li a {
-  text-decoration: none;
-  color: var(--text-dark);
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: var(--transition);
-}
+        /* Skills & Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { 
+            background: #fff; padding: 35px; border-radius: var(--radius); 
+            border: 1px solid #f0f0f0; box-shadow: var(--shadow); 
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--canva-purple); }
+        .card i { font-size: 2rem; color: var(--canva-purple); margin-bottom: 20px; }
+        
+        .pill-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .pill { background: #f2f0ff; color: var(--canva-purple); padding: 6px 15px; border-radius: 100px; font-size: 0.8rem; font-weight: 700; }
 
-nav ul li a:hover {
-  color: var(--canva-purple);
-}
+        .btn-view {
+            display: block; width: 100%; padding: 12px; background: var(--canva-gradient);
+            color: white; text-align: center; border-radius: 12px; text-decoration: none;
+            margin-top: 20px; font-weight: 700;
+        }
 
-/* --- Hero Section --- */
-.hero {
-  padding: 80px 10%;
-  background: var(--canva-light-purple);
-  border-bottom-left-radius: 80px;
-  border-bottom-right-radius: 80px;
-}
+        @media (max-width: 900px) {
+            .hero { flex-direction: column-reverse; text-align: center; }
+            .hero-text h2 { text-align: center; }
+            .social-buttons { justify-content: center; flex-wrap: wrap; }
+            .hero-image img { width: 280px; height: 280px; margin-bottom: 40px; }
+        }
+    </style>
+</head>
+<body>
 
-.hero-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-}
+<header>
+    <div class="logo">PL.</div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-.hero-text h2 {
-  text-align: left;
-  font-size: 1.1rem;
-  color: var(--canva-purple);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 1rem;
-}
+<section class="hero" id="home">
+    <div class="hero-text">
+        <h2 id="typing-text"></h2>
+        <h1>I'm Pendli Likitha</h1>
+        <p>A Computer Science student specializing in AI & ML, building intelligent solutions and responsive web experiences.</p>
+        
+        <div class="social-buttons">
+            <a href="https://github.com/2303A52393" target="_blank" class="social-btn github">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://linkedin.com/in/likitha-pendli-a87583287" target="_blank" class="social-btn linkedin">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="mailto:likithapendli60@gmail.com" class="social-btn mail">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <!-- Replace with your actual image path -->
+        <img src="assets/img/likki.jpg" alt="Pendli Likitha" onerror="this.src='https://via.placeholder.com/400x400?text=Profile+Photo'">
+    </div>
+</section>
 
-.hero-text h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  color: var(--text-dark);
-}
+<section id="about">
+    <h2 class="section-title">About <span>Me</span></h2>
+    <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+            I am a 3rd-year Computer Science student passionate about Machine Learning and Full-Stack development. 
+            I love bridging the gap between complex AI algorithms and user-friendly web interfaces. 
+            With a focus on Python and React, I strive to create meaningful digital impacts.
+        </p>
+    </div>
+</section>
 
-.hero-text p {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  max-width: 500px;
-  margin-bottom: 2rem;
-}
+<section id="skills">
+    <h2 class="section-title">Core <span>Skills</span></h2>
+    <div class="grid">
+        <div class="card">
+            <i class="fas fa-brain"></i>
+            <h3>AI & Machine Learning</h3>
+            <div class="pill-container">
+                <span class="pill">Python</span>
+                <span class="pill">TensorFlow</span>
+                <span class="pill">Scikit-learn</span>
+                <span class="pill">Deep Learning</span>
+            </div>
+        </div>
+        <div class="card">
+            <i class="fas fa-code"></i>
+            <h3>Web Development</h3>
+            <div class="pill-container">
+                <span class="pill">HTML5</span>
+                <span class="pill">CSS3</span>
+                <span class="pill">React.js</span>
+                <span class="pill">SQL</span>
+            </div>
+        </div>
+    </div>
+</section>
 
-.hero-image img {
-  width: 350px;
-  height: 350px;
-  border-radius: var(--radius-xl);
-  object-fit: cover;
-  box-shadow: 20px 20px 0px var(--canva-purple);
-}
+<section id="projects">
+    <h2 class="section-title">Featured <span>Projects</span></h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Bank Marketing Analysis</h3>
+            <p style="color: var(--text-muted); margin-top: 10px;">A machine learning model to predict bank marketing success rates.</p>
+            <a href="#" class="btn-view">View on GitHub</a>
+        </div>
+        <div class="card">
+            <h3>Heart Disease Prediction</h3>
+            <p style="color: var(--text-muted); margin-top: 10px;">AI-driven health analysis using deep learning techniques.</p>
+            <a href="#" class="btn-view">View on GitHub</a>
+        </div>
+    </div>
+</section>
 
-.social-icons {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-}
+<footer>
+    <div style="text-align: center; padding: 40px; border-top: 1px solid #eee; color: var(--text-muted);">
+        <p>© 2025 Pendli Likitha. Built with passion & AI.</p>
+    </div>
+</footer>
 
-.social-icons a {
-  font-size: 1.5rem;
-  color: var(--text-dark);
-  transition: var(--transition);
-}
+<script>
+    // Typing Effect Logic
+    const textElement = document.getElementById('typing-text');
+    const textToType = "Hi, There! 👋";
+    let index = 0;
 
-.social-icons a:hover {
-  color: var(--canva-purple);
-  transform: scale(1.2);
-}
+    function typeEffect() {
+        if (index < textToType.length) {
+            textElement.innerHTML += textToType.charAt(index);
+            index++;
+            setTimeout(typeEffect, 100);
+        }
+    }
 
-/* --- About & Titles --- */
-section {
-  padding: 100px 10% 50px;
-}
+    // Run when page loads
+    window.onload = typeEffect;
+</script>
 
-h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-h2 span {
-  color: var(--canva-purple);
-}
-
-.about-section p {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--text-muted);
-}
-
-/* --- Skill Boxes (Grid) --- */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-}
-
-.skill-box {
-  background: white;
-  padding: 30px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
-  transition: var(--transition);
-  text-align: center;
-}
-
-.skill-box:hover {
-  transform: translateY(-10px);
-  border-color: var(--canva-purple);
-}
-
-.skill-icon {
-  font-size: 2.5rem;
-  color: var(--canva-purple);
-  margin-bottom: 15px;
-}
-
-.skill-tags span {
-  display: inline-block;
-  background: var(--canva-light-purple);
-  color: var(--canva-purple);
-  padding: 5px 15px;
-  border-radius: 100px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin: 4px;
-}
-
-/* --- Cards (Internships, Projects) --- */
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-
-.card-box, .certificate-box {
-  background: white;
-  padding: 40px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
-  display: flex;
-  flex-direction: column;
-}
-
-.view-btn {
-  margin-top: auto;
-  background: var(--canva-gradient);
-  color: white;
-  padding: 12px 0;
-  border-radius: 100px;
-  text-align: center;
-  font-weight: 700;
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.view-btn:hover {
-  opacity: 0.9;
-  transform: scale(1.05);
-}
-
-/* --- Contact Form --- */
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-form input, .contact-form textarea {
-  width: 100%;
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--bg-soft);
-  font-family: inherit;
-}
-
-.contact-form button {
-  background: var(--canva-purple);
-  color: white;
-  border: none;
-  padding: 18px;
-  border-radius: 12px;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-/* --- Footer --- */
-footer {
-  text-align: center;
-  padding: 50px;
-  background: var(--text-dark);
-  color: white;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-}
-
-/* --- Responsive --- */
-@media (max-width: 900px) {
-  .hero-container { flex-direction: column-reverse; text-align: center; }
-  .hero-text h1 { font-size: 2.5rem; }
-  .hero-text h2 { text-align: center; }
-  header { padding: 1rem 5%; }
-}
+</body>
+</html>
