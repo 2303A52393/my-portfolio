@@ -1,217 +1,186 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pendli Likitha | Portfolio</title>
-    <script src="https://kit.fontawesome.com/a9cdbedf57.js" crossorigin="anonymous"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* --- Professional Portfolio Design System --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
-        :root {
-            --canva-purple: #7d2ae8;
-            --canva-gradient: linear-gradient(135deg, #7d2ae8 0%, #00c4cc 100%);
-            --bg-light: #f6f9fc;
-            --text-dark: #0e1318;
-            --text-muted: #5e6d77;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --radius: 24px;
-        }
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary: #0ea5e9;
+    /* Professional Background Palette */
+    --bg-main: #f8fafc; /* Professional "Silk" Off-White */
+    --bg-accent: #f1f5f9;
+    --dark: #0f172a; /* Navy Dark for text */
+    --slate: #64748b;
+    --glass: rgba(255, 255, 255, 0.7);
+    --shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #fff; color: var(--text-dark); scroll-behavior: smooth; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Header */
-        header {
-            position: sticky; top: 0; background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(10px); padding: 1.2rem 8%;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; border-bottom: 1px solid #eee;
-        }
-        .logo { font-weight: 800; color: var(--canva-purple); font-size: 1.4rem; }
-        nav ul { display: flex; list-style: none; gap: 25px; }
-        nav a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.9rem; }
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    /* Professional Subtle Gradient Background */
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
 
-        /* Hero Section */
-        .hero { 
-            padding: 100px 8% 60px; 
-            display: flex; align-items: center; justify-content: space-between; 
-            background: radial-gradient(circle at top right, #f2f0ff, #fff);
-            min-height: 80vh;
-        }
-        .hero-text { flex: 1; }
-        .hero-text h2 { 
-            font-size: 1.5rem; color: var(--canva-purple); margin-bottom: 0.5rem; 
-            min-height: 1.6em; /* Prevents layout jump during typing */
-        }
-        .hero-text h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
-        .hero-text p { font-size: 1.1rem; color: var(--text-muted); max-width: 500px; margin-bottom: 2.5rem; }
+/* --- Navigation --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.2rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
 
-        /* Social Icons with unique colors */
-        .social-buttons { display: flex; gap: 15px; }
-        .social-btn {
-            padding: 12px 24px; border-radius: 100px; text-decoration: none; 
-            font-weight: 700; color: white; display: flex; align-items: center; gap: 8px;
-            transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .social-btn:hover { transform: translateY(-3px); }
-        .github { background: #24292e; }
-        .linkedin { background: #0077b5; }
-        .mail { background: var(--canva-purple); }
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--dark);
+}
 
-        .hero-image img {
-            width: 380px; height: 380px; border-radius: var(--radius);
-            object-fit: cover; box-shadow: 30px 30px 0 var(--canva-light-purple);
-            border: 8px solid white; box-shadow: var(--shadow);
-        }
+.logo span {
+    color: var(--primary);
+}
 
-        /* Sections */
-        section { padding: 80px 8%; }
-        h2.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; font-weight: 800; }
-        h2.section-title span { color: var(--canva-purple); }
+nav ul {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
 
-        /* Skills & Cards */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { 
-            background: #fff; padding: 35px; border-radius: var(--radius); 
-            border: 1px solid #f0f0f0; box-shadow: var(--shadow); 
-            transition: 0.3s;
-        }
-        .card:hover { transform: translateY(-10px); border-color: var(--canva-purple); }
-        .card i { font-size: 2rem; color: var(--canva-purple); margin-bottom: 20px; }
-        
-        .pill-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
-        .pill { background: #f2f0ff; color: var(--canva-purple); padding: 6px 15px; border-radius: 100px; font-size: 0.8rem; font-weight: 700; }
+nav a {
+    text-decoration: none;
+    color: var(--slate);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
 
-        .btn-view {
-            display: block; width: 100%; padding: 12px; background: var(--canva-gradient);
-            color: white; text-align: center; border-radius: 12px; text-decoration: none;
-            margin-top: 20px; font-weight: 700;
-        }
+nav a:hover {
+    color: var(--primary);
+}
 
-        @media (max-width: 900px) {
-            .hero { flex-direction: column-reverse; text-align: center; }
-            .hero-text h2 { text-align: center; }
-            .social-buttons { justify-content: center; flex-wrap: wrap; }
-            .hero-image img { width: 280px; height: 280px; margin-bottom: 40px; }
-        }
-    </style>
-</head>
-<body>
+/* --- Hero Section --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    /* Soft light glow behind hero image */
+    background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+}
 
-<header>
-    <div class="logo">PL.</div>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
 
-<section class="hero" id="home">
-    <div class="hero-text">
-        <h2 id="typing-text"></h2>
-        <h1>I'm Pendli Likitha</h1>
-        <p>A Computer Science student specializing in AI & ML, building intelligent solutions and responsive web experiences.</p>
-        
-        <div class="social-buttons">
-            <a href="https://github.com/2303A52393" target="_blank" class="social-btn github">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://linkedin.com/in/likitha-pendli-a87583287" target="_blank" class="social-btn linkedin">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="mailto:likithapendli60@gmail.com" class="social-btn mail">
-                <i class="fas fa-envelope"></i> Email
-            </a>
-        </div>
-    </div>
-    <div class="hero-image">
-        <!-- Replace with your actual image path -->
-        <img src="assets/img/likki.jpg" alt="Pendli Likitha" onerror="this.src='https://via.placeholder.com/400x400?text=Profile+Photo'">
-    </div>
-</section>
+#dynamic-text {
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
 
-<section id="about">
-    <h2 class="section-title">About <span>Me</span></h2>
-    <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
-            I am a 3rd-year Computer Science student passionate about Machine Learning and Full-Stack development. 
-            I love bridging the gap between complex AI algorithms and user-friendly web interfaces. 
-            With a focus on Python and React, I strive to create meaningful digital impacts.
-        </p>
-    </div>
-</section>
+.typing-cursor::after {
+    content: "|";
+    animation: blink 1s infinite;
+    color: var(--primary);
+}
 
-<section id="skills">
-    <h2 class="section-title">Core <span>Skills</span></h2>
-    <div class="grid">
-        <div class="card">
-            <i class="fas fa-brain"></i>
-            <h3>AI & Machine Learning</h3>
-            <div class="pill-container">
-                <span class="pill">Python</span>
-                <span class="pill">TensorFlow</span>
-                <span class="pill">Scikit-learn</span>
-                <span class="pill">Deep Learning</span>
-            </div>
-        </div>
-        <div class="card">
-            <i class="fas fa-code"></i>
-            <h3>Web Development</h3>
-            <div class="pill-container">
-                <span class="pill">HTML5</span>
-                <span class="pill">CSS3</span>
-                <span class="pill">React.js</span>
-                <span class="pill">SQL</span>
-            </div>
-        </div>
-    </div>
-</section>
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
 
-<section id="projects">
-    <h2 class="section-title">Featured <span>Projects</span></h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Bank Marketing Analysis</h3>
-            <p style="color: var(--text-muted); margin-top: 10px;">A machine learning model to predict bank marketing success rates.</p>
-            <a href="#" class="btn-view">View on GitHub</a>
-        </div>
-        <div class="card">
-            <h3>Heart Disease Prediction</h3>
-            <p style="color: var(--text-muted); margin-top: 10px;">AI-driven health analysis using deep learning techniques.</p>
-            <a href="#" class="btn-view">View on GitHub</a>
-        </div>
-    </div>
-</section>
+.hero-text h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+}
 
-<footer>
-    <div style="text-align: center; padding: 40px; border-top: 1px solid #eee; color: var(--text-muted);">
-        <p>© 2025 Pendli Likitha. Built with passion & AI.</p>
-    </div>
-</footer>
+.hero-text p {
+    font-size: 1.15rem;
+    color: var(--slate);
+    max-width: 550px;
+    margin-bottom: 2.5rem;
+}
 
-<script>
-    // Typing Effect Logic
-    const textElement = document.getElementById('typing-text');
-    const textToType = "Hi, There! 👋";
-    let index = 0;
+/* --- Professional Social Buttons --- */
+.social-group {
+    display: flex;
+    gap: 1rem;
+}
 
-    function typeEffect() {
-        if (index < textToType.length) {
-            textElement.innerHTML += textToType.charAt(index);
-            index++;
-            setTimeout(typeEffect, 100);
-        }
-    }
+.btn-social {
+    padding: 0.9rem 1.6rem;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
 
-    // Run when page loads
-    window.onload = typeEffect;
-</script>
+.linkedin-btn { background: #0077b5; color: white; }
+.github-btn { background: #181717; color: white; }
+.mail-btn { background: white; color: var(--dark); border: 1px solid #e2e8f0; }
 
-</body>
-</html>
+.btn-social:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px -10px rgba(0,0,0,0.1);
+}
+
+/* --- Hero Image --- */
+.hero-img-wrapper img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 40px;
+    background: white;
+    padding: 10px;
+    box-shadow: var(--shadow);
+    /* Subtle floating animation */
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* --- Cards --- */
+.card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+    transition: var(--transition);
+}
+
+.card:hover {
+    background: white;
+    transform: translateY(-10px);
+    box-shadow: var(--shadow);
+}
